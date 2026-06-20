@@ -8,6 +8,7 @@ import { DEV } from "@/env";
 import { SpeedrunMilestones } from "./core/speedrun";
 import { Cloud } from "./core/storage";
 import { supportedBrowsers } from "./supported-browsers";
+import { ArchipelagoClient } from "./archipelago/antimatter-client";
 
 import Payments from "./core/payments";
 
@@ -1095,6 +1096,8 @@ export function init() {
   GameStorage.load();
   Tabs.all.find(t => t.config.id === player.options.lastOpenTab).show(true);
   Payments.init();
+  ArchipelagoClient.initialize();
+  
 }
 
 window.tweenTime = 0;
